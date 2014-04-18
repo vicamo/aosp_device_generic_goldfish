@@ -76,6 +76,13 @@ service dhcpcd_p2p /system/bin/dhcpcd -ABKLG
     disabled
     oneshot
 
+# Default goldfish AP.
+service goldfish-hostapd /system/bin/hostapd /system/etc/wifi/goldfish-hostapd.conf
+    class main
+    user root
+    group wifi net
+    oneshot
+
 # enable Google-specific location features,
 # like NetworkLocationProvider and LocationCollector
     setprop ro.com.google.locationfeatures 1
